@@ -394,7 +394,7 @@ func TestAccAWSCodePipelineWithNamespace(t *testing.T) {
 			{
 				Config: testAccAWSCodePipelineConfigWithNamespace(name),
 				Check: resource.ComposeTestCheckFunc(
-					testAccCheckAWSCodePipelineExists(resourceName),
+					testAccCheckAWSCodePipelineExists(resourceName, &p1),
 					resource.TestMatchResourceAttr(resourceName, "arn",
 						regexp.MustCompile(fmt.Sprintf("^arn:aws:codepipeline:[^:]+:[0-9]{12}:test-pipeline-%s", name))),
 					resource.TestCheckResourceAttr(resourceName, "artifact_store.0.type", "S3"),
