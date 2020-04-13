@@ -59,7 +59,7 @@ docscheck:
 lint:
 	@echo "==> Checking source code against linters..."
 	@golangci-lint run ./$(PKG_NAME)/...
-	@awsproviderlint \
+	@$(GOPATH)/bin/awsproviderlint \
 		-c 1 \
 		-AT001 \
 		-AT002 \
